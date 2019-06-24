@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Clube de Futebol
 
-Esse sistema foi desenvolvido por Luan Solino e Matheus Melo como tarefa da disciplina 'Programação OO' ministrada pelo professor Maurício Amorim no IFF Fluminense.
+Esse sistema foi desenvolvido por Luan Solino, Matheus Melo e João Leite como tarefa da disciplina 'Programação OO' ministrada pelo professor Maurício Amorim no IFF Fluminense.
 
 O Sistema tem o objetivo de auxiliar no gerenciamento de um clube de futebol onde o administrador do sistema consegue adicionar novas categorias, jogadores e as partidas realizadas por cada categoria.
 
