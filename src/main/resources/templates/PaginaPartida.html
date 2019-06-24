@@ -20,19 +20,19 @@
                         </div>
                         <div class="form-group">
                             <label for="campeonato">Campeonato: &nbsp;</label>
-                            <input class="form-control" type="text" th:field="*{campeonato}" name="campeonato" id="campeonato" placeholder="Campeonato"/>
+                            <input class="form-control" type="text" th:field="*{campeonato}" name="campeonato" id="campeonato" placeholder="Campeonato" required/>
                         </div>
 						<br>
 						<br>
                         <div class="form-group">
                             <label for="dataJogo">Data da Partida:&nbsp;</label>
-                            <input class="form-control" type="date" th:field="*{dataJogo}" name="dataJogo" id="dataJogo" placeholder="Data da Partida"/>
+                            <input class="form-control" type="date" th:field="*{dataJogo}" name="dataJogo" id="dataJogo" placeholder="Data da Partida"required/>
                         </div>
 						<br>
 						<br>
 						<div class="form-group">
                             <label for="local">Local:&nbsp;</label>
-                            <input class="form-control" type="text" th:field="*{local}" name="local" id="local" placeholder="Local"/>
+                            <input class="form-control" type="text" th:field="*{local}" name="local" id="local" placeholder="Local"required/>
                         </div>
 						<br>
 						<br>
@@ -40,30 +40,30 @@
                             <label for="categoria">Categoria:&nbsp;</label>
                             <select th:field="*{categoria}">
 								<option value="">Selecione a Categoria</option>
-								<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" selected="selected"></option>
+								<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" selected="selected"required></option>
 							</select>
                         </div>
 						<br>
 						<br>
 						<div class="form-group">
                             <label for="salario">Adversário:&nbsp;</label>
-                            <input class="form-control" type="text" th:field="*{adversario}" name="adversario" id="adversario" placeholder="Adversário"/>
+                            <input class="form-control" type="text" th:field="*{adversario}" name="adversario" id="adversario" placeholder="Adversário"required/>
                         </div>
 						<br>
 						<br>
 						<div class="form-group">
                             <label for="golsfeitos">Gols Feitos:&nbsp;</label>
-                            <input class="form-control" type="number" th:field="*{golsFeitos}" name="golsfeitos" id="golsfeitos" placeholder="Gols Marcados" min="0" style = "width: 4em"/>
+                            <input class="form-control" type="number" th:field="*{golsFeitos}" name="golsfeitos" id="golsfeitos" placeholder="Gols Marcados" min="0" style = "width: 4em"required/>
                         </div>
 						<br>
 						<br>
 						<div class="form-group">
                             <label for="golssofridos">Gols Sofridos:&nbsp;</label>
-                            <input class="form-control" type="number" th:field="*{golsSofridos}" name="golssofridos" id="golssofridos" placeholder="Gols Sofridos" min="0" style = "width: 4em"/>
+                            <input class="form-control" type="number" th:field="*{golsSofridos}" name="golssofridos" id="golssofridos" placeholder="Gols Sofridos" min="0" style = "width: 4em"required/>
                         </div>
 						<br>
 						<br>
-                        <input class="btn btn-primary" type="submit" value="Salvar"/>
+                        <input class="btn btn-primary" type="submit" value="Salvar"required/>
 
                     </form>
                 </div>
