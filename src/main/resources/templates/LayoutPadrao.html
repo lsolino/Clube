@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+    <meta name="description" content="Gerenciamento de Clube de Futebol"></meta>
+    <meta name="author" content="Luan Solino"></meta>
+    <title>Gerenciamento de Clube</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></link>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-full navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">Sistema de Gerenciamento de Clube</a>
+            </div>
+            <ul class="navbar-nav nav">
+                <li class="nav-item active"><a class="nav-link" th:href = "@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href = "@{/sobre}">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" th:href = "@{/grupo}">Grupo</a></li>
+				<li class="nav-item"><a class="nav-link" th:href = "@{/categorias}">Categorias</a></li>
+			    <li class="nav-item"><a class="nav-link" th:href = "@{/jogadores}">Jogadores</a></li>
+				<li class="nav-item"><a class="nav-link" th:href = "@{/partidas}">Partidas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section layout:fragment="Conteudo">
+		
+	</section>
+
+    <footer style="text-align:center;">
+        <hr/>
+        <p>Programação OO - Bacharelado em Sistemas de Informação</p>
+    </footer>
+</div>
+</body>
+</html>

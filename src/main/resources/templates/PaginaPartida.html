@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+<section layout:fragment="Conteudo">
+
+	<div class="row" style="margin: 50px">
+        <div class="col-md-4 col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Partida</div>
+                <div class="panel-body">
+                
+                    <form class="form-inline" method="POST" th:object="${partida}"
+			      th:action="@{/partidas}"  style="margin: 20px 0">
+			      	
+			      		<div class="form-group">
+                            <input type="hidden" th:field="*{id}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="campeonato">Campeonato: &nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{campeonato}" name="campeonato" id="campeonato" placeholder="Campeonato"/>
+                        </div>
+						<br>
+						<br>
+                        <div class="form-group">
+                            <label for="dataJogo">Data da Partida:&nbsp;</label>
+                            <input class="form-control" type="date" th:field="*{dataJogo}" name="dataJogo" id="dataJogo" placeholder="Data da Partida"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="local">Local:&nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{local}" name="local" id="local" placeholder="Local"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="categoria">Categoria:&nbsp;</label>
+                            <select th:field="*{categoria}">
+								<option value="">Selecione a Categoria</option>
+								<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" selected="selected"></option>
+							</select>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="salario">Adversário:&nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{adversario}" name="adversario" id="adversario" placeholder="Adversário"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="golsfeitos">Gols Feitos:&nbsp;</label>
+                            <input class="form-control" type="number" th:field="*{golsFeitos}" name="golsfeitos" id="golsfeitos" placeholder="Gols Marcados" min="0" style = "width: 4em"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="golssofridos">Gols Sofridos:&nbsp;</label>
+                            <input class="form-control" type="number" th:field="*{golsSofridos}" name="golssofridos" id="golssofridos" placeholder="Gols Sofridos" min="0" style = "width: 4em"/>
+                        </div>
+						<br>
+						<br>
+                        <input class="btn btn-primary" type="submit" value="Salvar"/>
+
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Lista de Partidas</div>
+                <div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Campeonato</th>
+						<th>Data da Partida</th>
+						<th>Local</th>
+						<th>Categoria</th>
+						<th>Adversário</th>
+						<th>Gols Feitos</th>
+						<th>Gols Sofridos</th>
+						<th colspan="2">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="partida : ${partidas}">
+						<td th:text="${partida.id}">ID</td>
+						<td th:text="${partida.campeonato}">Campeonato</td>
+						<td th:text="${partida.dataJogo}">Data da Partida</td>
+						<td th:text="${partida.local}">Local</td>
+						<td th:text="${partida.categoria.nome}">Categoria</td>
+						<td th:text="${partida.adversario}">Adversário</td>
+						<td th:text="${partida.golsFeitos}">Gols Feitos</td>
+						<td th:text="${partida.golsSofridos}">Gols Sofridos</td>
+						<td>
+							<a th:href="@{/partidas/alterar/}+${partida.id}" 
+						    class="btn btn-warning">Editar
+							</a>
+						</td>
+						<td>
+							<a th:href="@{/partidas/excluir/}+${partida.id}" 
+						    class="btn btn-danger" onclick="return confirm('Deseja realmente excluir essa partida?')">Apagar
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</section>
+
+
+</html>

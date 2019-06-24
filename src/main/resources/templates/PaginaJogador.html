@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+<section layout:fragment="Conteudo">
+
+	<div class="row" style="margin: 50px">
+        <div class="col-md-4 col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Jogador</div>
+                <div class="panel-body">
+                
+                    <form class="form-inline" method="POST" th:object="${jogador}"
+			      th:action="@{/jogadores}"  style="margin: 20px 0">
+			      	
+			      		<div class="form-group">
+                            <input type="hidden" th:field="*{id}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Nome: &nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{nome}" name="nome" id="nome" placeholder="Nome"/>
+                        </div>
+						<br>
+						<br>
+                        <div class="form-group">
+                            <label for="cpf">CPF:&nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{cpf}" name="cpf" id="cpf" placeholder="CPF"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="telefone">Telefone:&nbsp;</label>
+                            <input class="form-control" type="text" th:field="*{telefone}" name="telefone" id="telefone" placeholder="Telefone"/>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="categoria">Categoria:&nbsp;</label>
+                            <select th:field="*{categoria}">
+								<option value="">Selecione a Categoria</option>
+								<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" selected="selected"></option>
+							</select>
+                        </div>
+						<br>
+						<br>
+						<div class="form-group">
+                            <label for="salario">Salário: (R$)&nbsp;</label>
+                            <input class="form-control" type="number" th:field="*{salario}" min="0" name="salario" id="salario" placeholder="Salário" style = "width: 6em"/>
+                        </div>
+						<br>
+						<br>
+                        <input class="btn btn-primary" type="submit" value="Salvar"/>
+
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Lista de Jogadores</div>
+                <div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Telefone</th>
+						<th>Salário (R$)</th>
+						<th>Categoria</th>
+						<th colspan="2">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="jogador : ${jogadores}">
+						<td th:text="${jogador.id}">ID</td>
+						<td th:text="${jogador.nome}">Nome</td>
+						<td th:text="${jogador.cpf}">CPF</td>						
+						<td th:text="${jogador.telefone}">Telefone</td>						
+						<td th:text="${jogador.salario}">Salário</td>
+						<td th:text="${jogador.categoria.nome}">Categoria</td>
+						<td>
+							<a th:href="@{/jogadores/alterar/}+${jogador.id}" 
+						    class="btn btn-warning">Editar
+							</a>
+							<a th:href="@{/jogadores/excluir/}+${jogador.id}" 
+						     class="btn btn-danger" onclick="return confirm('Deseja realmente excluir esse jogador?')">Apagar
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+</html>
