@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Partida {
@@ -29,6 +30,7 @@ public class Partida {
 	private int golsFeitos;
 	private int golsSofridos;
 	
+        @JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	@NotNull(message = "Categoria Obrigatória")

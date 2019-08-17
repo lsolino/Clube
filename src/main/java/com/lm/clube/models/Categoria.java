@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Categoria {
@@ -22,10 +23,14 @@ public class Categoria {
 	private String nome;
 	private String descricao;
 	
+        
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+        @JsonManagedReference
 	private Set<Jogador> jogadores;
 	
+        
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+        @JsonManagedReference
 	private Set<Partida> partidas;
 	
 	public Long getId() {

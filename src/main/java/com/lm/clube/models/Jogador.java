@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Jogador {
@@ -20,6 +21,7 @@ public class Jogador {
 	private String telefone;
 	private int salario;
 	
+        @JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	@NotNull(message = "Categoria Obrigatória")
